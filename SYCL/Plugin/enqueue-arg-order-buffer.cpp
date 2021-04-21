@@ -392,7 +392,7 @@ int main() {
 
 // ----------- BUFFERS
 
-//CHECK: start copyD2H-buffer
+//CHECK-LABEL: start copyD2H-buffer
 //CHECK: ---> piEnqueueMemBufferRead(
 //CHECK: <unknown> : 64
 //CHECK: ---> piEnqueueMemBufferReadRect(
@@ -404,7 +404,7 @@ int main() {
 // CHECK-NEXT: <unknown> : 320
 //CHECK: end copyD2H-buffer
 
-//CHECK: start copyH2D-buffer
+//CHECK-LABEL: start copyH2D-buffer
 //CHECK: ---> piEnqueueMemBufferWrite(
 //CHECK: <unknown> : 64
 //CHECK:  ---> piEnqueueMemBufferWriteRect(
@@ -420,7 +420,7 @@ int main() {
 // CHECK-NEXT: <unknown> : 320
 //CHECK: end copyH2D-buffer
 
-//CHECK: start copyD2D-buffer
+//CHECK-LABEL: start copyD2D-buffer
 //CHECK: ---> piEnqueueMemBufferCopy(
 //CHECK: <unknown> : 64
 //CHECK: ---> piEnqueueMemBufferCopyRect(
@@ -436,7 +436,7 @@ int main() {
 // CHECK-NEXT: <unknown> : 320
 //CHECK: end copyD2D-buffer
 
-//CHECK: start testFill Buffer
+//CHECK-LABEL: start testFill Buffer
 //CHECK: ---> piEnqueueMemBufferFill(
 //CHECK: <unknown> : 4
 // CHECK-NEXT: <unknown> : 0
