@@ -1,4 +1,4 @@
-// UNSUPPORTED:  cuda
+// UNSUPPORTED: cuda
 // REQUIRES: gpu,linux
 // RUN: %clangxx -fsycl %s -o %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
