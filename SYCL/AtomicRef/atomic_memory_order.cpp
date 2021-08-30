@@ -5,7 +5,7 @@
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 // L0, OpenCL, and ROCm backends don't currently support
 // info::device::atomic_memory_order_capabilities
-// UNSUPPORTED: level_zero || opencl || rocm
+// UNSUPPORTED: level_zero || opencl || hip
 
 // NOTE: General tests for atomic memory order capabilities.
 
