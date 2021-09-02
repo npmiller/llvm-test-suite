@@ -184,7 +184,11 @@ if config.hip_platform not in supported_hip_platforms:
     lit_config.error("Unknown HIP platform '" + config.hip_platform + "' supported platforms are " + ', '.join(supported_hip_platforms))
 
 if config.sycl_be == "hip" and config.hip_platform == "AMD":
+    config.available_features.add('hip_amd')
     arch_flag = '-Xsycl-target-backend=amdgcn-amd-amdhsa-sycldevice --offload-arch=' + config.amd_arch
+elif config.sycl_be == "hip" and config.hip_platform == "NVIDIA":
+    config.available_features.add('hip_nvidia')
+    arch_flag = ""
 else:
     arch_flag = ""
 
