@@ -5,6 +5,9 @@
 
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
+//
+// Missing built-ins on AMD
+// XFAIL: hip_amd
 
 // This test performs basic checks of parallel_for(nd_range, reduction, func)
 // with reductions initialized with USM var. It tests only SYCL-2020 reduction

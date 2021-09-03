@@ -2,6 +2,9 @@
 // RUN: %HOST_RUN_PLACEHOLDER %t.out
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
+//
+// Missing built-ins on AMD
+// XFAIL: hip_amd
 
 /*
     This file sets up an image, initializes it with data,
