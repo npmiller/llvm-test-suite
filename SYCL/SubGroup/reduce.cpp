@@ -8,7 +8,9 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
-// Missing built-ins on AMD
+// Missing __spirv_GroupIAdd, __spirv_GroupSMin, __spirv_GroupSMax,
+// __spirv_GroupUMin, __spirv_GroupUMax, __spirv_GroupFAdd, __spirv_GroupFMin,
+// __spirv_GroupFMax on AMD
 // XFAIL: hip_amd
 //
 //==--------------- reduce.cpp - SYCL sub_group reduce test ----*- C++ -*---==//

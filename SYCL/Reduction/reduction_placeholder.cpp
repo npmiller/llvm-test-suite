@@ -3,7 +3,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
-// Missing built-ins on AMD
+// Missing __spirv_GroupIAdd, __spirv_GroupFMin on AMD
 // XFAIL: hip_amd
 
 // RUNx: %HOST_RUN_PLACEHOLDER %t.out

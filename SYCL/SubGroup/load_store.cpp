@@ -6,7 +6,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
-// Missing symbols with HIP AMD
+// Missing __spirv_SubgroupBlockReadINTEL, __spirv_SubgroupBlockWriteINTEL on AMD
 // XFAIL: hip_amd
 //
 //==----------- load_store.cpp - SYCL sub_group load/store test ------------==//

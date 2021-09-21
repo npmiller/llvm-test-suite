@@ -6,7 +6,7 @@
 // TODO: test disabled due to sporadic fails in level_zero:gpu RT.
 // UNSUPPORTED: linux && level_zero
 //
-// Missing built-ins on AMD
+// Missing __spirv_GroupIAdd, __spirv_GroupFMin, __spirv_GroupFMax on AMD
 // XFAIL: hip_amd
 
 // This test performs basic checks of parallel_for(nd_range, reduction, func)

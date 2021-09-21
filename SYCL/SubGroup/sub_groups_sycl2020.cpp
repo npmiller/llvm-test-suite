@@ -2,7 +2,7 @@
 // RUN: %CPU_RUN_PLACEHOLDER %t.out
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 //
-// Missing built-ins on AMD
+// Missing __spirv_SubgroupLocalInvocationId on AMD
 // XFAIL: hip_amd
 
 #include <sycl/sycl.hpp>

@@ -4,7 +4,7 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
-// Missing symbols on AMD
+// Missing __spirv_GroupIAdd, __spirv_GroupSMin, __spirv_GroupSMax on AMD
 // XFAIL: hip_amd
 
 // TODO: enable compile+runtime checks for operations defined in SPIR-V 1.3.

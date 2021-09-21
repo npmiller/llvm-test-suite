@@ -4,7 +4,8 @@
 // RUN: %GPU_RUN_PLACEHOLDER %t.out
 // RUN: %ACC_RUN_PLACEHOLDER %t.out
 //
-// Missing symbols on AMD
+// Missing __spirv_SubgroupShuffleINTEL, __spirv_SubgroupShuffleUpINTEL,
+// __spirv_SubgroupShuffleDownINTEL, __spirv_SubgroupShuffleXorINTEL on AMD
 // XFAIL: hip_amd
 //
 //==------- shuffle_fp64.cpp - SYCL sub_group shuffle test -----*- C++ -*---==//
