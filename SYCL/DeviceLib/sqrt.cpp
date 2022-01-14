@@ -44,16 +44,20 @@ int main() {
         .wait_and_throw();
   }
 
-  float diff = 0.0f;
+  int ret = 0;
   for (int i = 0; i < input.size(); ++i) {
-    diff += fabs(expected[i] - output[i]);
+    if (output[i] != expected[i]) {
+      std::cerr << "Incorrectly rounded sycl::sqrt(" << std::hexfloat
+                << input[i] << ") at index " << i
+                << ", expected: " << expected[i] << ", got: " << output[i]
+                << std::endl;
+      ret = -1;
+    }
   }
 
-  if (diff > 0.0f) {
-    std::cerr << "Incorrectly rounded sqrt, total diff: " << diff << std::endl;
-    return -1;
+  if (ret == 0) {
+    std::cout << "Pass" << std::endl;
   }
 
-  std::cout << "Pass" << std::endl;
-  return 0;
+  return ret;
 }
