@@ -27,12 +27,16 @@ int main() {
   auto DeviceType = D.get_info<info::device::device_type>();
 
   const bool OCLBackend = D.get_platform().get_backend() == backend::opencl;
-  std::string OCLVersionStr = D.get_info<info::device::version>();
-  assert((OCLVersionStr.size() == 3) && "Unexpected device version string");
-  assert(OCLVersionStr.find(".") != std::string::npos &&
-         "Unexpected device version string");
-  const char OCLVersionMajor = OCLVersionStr[0];
-  const char OCLVersionMinor = OCLVersionStr[2];
+  char OCLVersionMajor = '0';
+  char OCLVersionMinor = '0';
+  if (OCLBackend) {
+    std::string OCLVersionStr = D.get_info<info::device::version>();
+    assert((OCLVersionStr.size() == 3) && "Unexpected device version string");
+    assert(OCLVersionStr.find(".") != std::string::npos &&
+          "Unexpected device version string");
+    OCLVersionMajor = OCLVersionStr[0];
+    OCLVersionMinor = OCLVersionStr[2];
+  }
 
   // reqd_work_group_size is OpenCL specific.
   if (OCLBackend) {
