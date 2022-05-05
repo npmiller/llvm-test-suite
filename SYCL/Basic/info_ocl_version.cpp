@@ -1,3 +1,5 @@
+// REQUIRES: opencl
+
 // RUN: %clangxx -fsycl -fsycl-targets=%sycl_triple %s -o %t.out
 // RUN: env %CPU_RUN_PLACEHOLDER %t.out
 // RUN: env %GPU_RUN_PLACEHOLDER %t.out
