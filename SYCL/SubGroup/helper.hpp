@@ -169,5 +169,14 @@ bool core_sg_supported(const device &Device) {
   auto Vec = Device.get_info<info::device::extensions>();
   if (std::find(Vec.begin(), Vec.end(), "cl_khr_subgroups") != std::end(Vec))
     return true;
-  return Device.get_info<info::device::version>() >= "2.1";
+
+  if (Device.get_backend() == cl::sycl::backend::opencl) {
+    std::string ver = Device.get_info<info::device::version>();
+
+    // Extract the numerical version from the version string, OpenCL version
+    // string have the format "OpenCL <major>.<minor> <vendor specific data>".
+    return ver.substr(7, 3) >= "2.1";
+  }
+
+  return false;
 }
