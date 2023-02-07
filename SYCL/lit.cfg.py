@@ -376,8 +376,10 @@ config.substitutions.append( ('%ACC_RUN_PLACEHOLDER',  acc_run_substitute) )
 config.substitutions.append( ('%ACC_CHECK_PLACEHOLDER',  acc_check_substitute) )
 
 if config.sycl_be == 'ext_oneapi_cuda' or (config.sycl_be == 'ext_oneapi_hip' and config.hip_platform == 'NVIDIA'):
+    llvm_config.with_system_environment('CUDA_PATH')
     config.substitutions.append( ('%sycl_triple',  "nvptx64-nvidia-cuda" ) )
 elif config.sycl_be == 'ext_oneapi_hip' and config.hip_platform == 'AMD':
+    llvm_config.with_system_environment('ROCM_PATH')
     config.substitutions.append( ('%sycl_triple',  "amdgcn-amd-amdhsa" ) )
 else:
     config.substitutions.append( ('%sycl_triple',  "spir64" ) )
