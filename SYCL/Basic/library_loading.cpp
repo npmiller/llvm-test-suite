@@ -11,10 +11,10 @@
 using namespace sycl;
 
 int main() {
-  // CHECK-NO-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(.*/libpi_cuda.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_cuda.so)}}
-  // CHECK-NO-FILTER-NOT: {{(SYCL_PI_TRACE\[-1\]: dlopen\(.*/libpi_esimd_emulator.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_esimd_emulator.so)}}
-  // CHECK-NO-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(.*/libpi_hip.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_hip.so)}}
-  // CHECK-ESIMD-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(.*/libpi_esimd_emulator.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_esimd_emulator.so)}}
+  // CHECK-NO-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(libpi_cuda.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_cuda.so)}}
+  // CHECK-NO-FILTER-NOT: {{(SYCL_PI_TRACE\[-1\]: dlopen\(libpi_esimd_emulator.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_esimd_emulator.so)}}
+  // CHECK-NO-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(libpi_hip.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_hip.so)}}
+  // CHECK-ESIMD-FILTER: {{(SYCL_PI_TRACE\[-1\]: dlopen\(libpi_esimd_emulator.so\) failed with)|(SYCL_PI_TRACE\[basic\]: Plugin found and successfully loaded: libpi_esimd_emulator.so)}}
   queue q;
   q.submit([&](handler &cgh) {});
 }
