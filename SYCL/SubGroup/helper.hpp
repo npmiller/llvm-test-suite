@@ -171,11 +171,13 @@ bool core_sg_supported(const device &Device) {
     return true;
 
   if (Device.get_backend() == sycl::backend::opencl) {
-    std::string ver = Device.get_info<info::device::version>();
-
     // Extract the numerical version from the version string, OpenCL version
     // string have the format "OpenCL <major>.<minor> <vendor specific data>".
-    return ver.substr(7, 3) >= "2.1";
+    std::string ver = Device.get_info<info::device::version>().substr(7, 3);
+
+    // cl_khr_subgroups was core in OpenCL 2.1 and 2.2, but went back to
+    // optional in 3.0
+    return ver >= "2.1" && ver < "3.0";
   }
 
   return false;
