@@ -17,7 +17,7 @@ bool isSupportedDevice(device D) {
     std::string Version = D.get_info<sycl::info::device::version>();
 
     // Group collectives are mandatory in OpenCL 2.0 but optional in 3.0.
-    Version = Version.substr(Offset + 7, 3);
+    Version = Version.substr(7, 3);
     if (Version >= "2.0" && Version < "3.0")
       return true;
   }
